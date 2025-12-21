@@ -1,14 +1,57 @@
-ul{
-    padding-left: 0;
-    margin-left: 0;
-    list-style: none;
-    font-family:"ヒラギノ明朝 ProN W3";
-}
-
-body{
-    font-family: Arial Black;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ここから処理を記述 */
+body {
+    font-family: 'Arial', 'Hiragino Sans', 'Meiryo', sans-serif;
+    line-height: 1.5;
+}
 
+.header {
+    background-color: aquamarine; 
+    height: 100px;                  
+    width: 100%; 
+    padding: 0 15%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-section {
+    display: flex;
+    align-items: flex-end;
+    margin-left: -22%;
+    height: 100%; 
+}
+
+.logo {
+    height: 100%;
+    width: auto;
+}
+
+.company-name {
+    font-size: 20px;
+    font-weight: 1000;
+    color: #333;
+}
+
+.navigation {
+    margin-right: -21%;
+    height: 100%;
+    display: flex;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: flex-end; 
+}
+
+.nav-item {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    padding: 0px 8px;
+}
