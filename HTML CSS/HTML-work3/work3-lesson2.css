@@ -1,0 +1,35 @@
+.header {
+    display: flex; /* ① 横並びにする */
+    align-items: center; /* 垂直方向の中央揃え */
+    justify-content: space-between; /* 要素間のスペースを均等に */
+    padding: 20px;
+    background-color: #f0f0f0; /* ヘッダーの背景色（任意） */
+}
+
+/* h1要素のスタイル */
+.header h1 {
+    width: 500px; /* ② 幅500px */
+    height: 42px; /* ② 高さ42px */
+    background-color: red; /* ② 背景色を赤色 */
+    color: white; /* 文字色を白に */
+    display: flex; /* 文字を中央揃えするためのflex */
+    align-items: center; /* 垂直方向の中央揃え */
+    justify-content: center; /* 水平方向の中央揃え */
+    font-size: 24px; /* 文字サイズ調整 */
+}
+
+.list {
+    display: flex; /* リストを横並びに */
+    list-style: none; /* ② li要素の黒点（・）を非表示 */
+    gap: 10px; /* リストアイテム間の間隔 */
+}
+
+.list li {
+    width: 200px; /* ② 横幅を各200px */
+    background-color: red; /* ② 背景を赤色に変更 */
+    color: white; /* 文字色を白に */
+    padding: 10px 20px; /* 内側の余白 */
+    text-align: center; /* 文字を中央揃え */
+    border-radius: 4px; /* 角を少し丸く（任意） */
+}
+
