@@ -40,18 +40,72 @@
      自分：20点　対戦相手：20点　勝敗：引き分けです。
     */
 
+    //この下に記述してください
+    echo "<br>";
+
     function blackJack()
     {
-      // トランプカードを格納した配列、マークの考慮はなし
-      $cards = ["A", "J", "Q", "K", 2, 3, 4, 5, 6, 7, 8, 9, 10];
-      // 自分のカード
-      $player = [];
-      // 相手のカード
-      $opponent = [];
-    }
-    
+        // トランプカードを格納した配列
+        $cards = ["A", "J", "Q", "K", 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        
+        // 自分と相手にランダムで2枚ずつ配布
+        $player = [ $cards[array_rand($cards)], $cards[array_rand($cards)] ];
+        $opponent = [ $cards[array_rand($cards)], $cards[array_rand($cards)] ];
 
-    //この下に記述してください
+        // 点数を計算する補助関数
+        $calculateScore = function($hand) {
+            $score = 0;
+            $aceCount = 0;
+
+            foreach ($hand as $card) {
+                if ($card === "A") {
+                    $aceCount++;
+                    $score += 11; // 一旦11点として計算
+                } elseif (in_array($card, ["J", "Q", "K"])) {
+                    $score += 10;
+                } else {
+                    $score += $card;
+                }
+            }
+
+            // 21を超えた場合、Aを11点から1点に変換する
+            while ($score > 21 && $aceCount > 0) {
+                $score -= 10;
+                $aceCount--;
+            }
+            return $score;
+        };
+
+        $playerScore = $calculateScore($player);
+        $opponentScore = $calculateScore($opponent);
+
+        // ブラックジャック判定（最初の2枚で21点）
+        $playerBJ = ($playerScore === 21);
+        $opponentBJ = ($opponentScore === 21);
+
+        // 勝敗判定ロジック
+        $result = "";
+        if ($playerScore > 21) {
+            $result = "あなたの負けです（バースト）。";
+        } elseif ($opponentScore > 21) {
+            $result = "あなたの勝ちです（相手がバースト）。";
+        } elseif ($playerBJ && !$opponentBJ) {
+            $result = "ブラックジャック！あなたの勝ちです。";
+        } elseif (!$playerBJ && $opponentBJ) {
+            $result = "相手がブラックジャック！あなたの負けです。";
+        } elseif ($playerScore > $opponentScore) {
+            $result = "あなたの勝ちです。";
+        } elseif ($playerScore < $opponentScore) {
+            $result = "あなたの負けです。";
+        } else {
+            $result = "引き分けです。";
+        }
+
+        echo "自分：{$playerScore}点 対戦相手：{$opponentScore}点勝敗：{$result}<br>";
+    }
+
+    // 関数の実行
+    blackJack();
 
     
     ?>

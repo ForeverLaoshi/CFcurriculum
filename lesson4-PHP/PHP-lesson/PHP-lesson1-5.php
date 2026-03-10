@@ -17,20 +17,43 @@
         - このファイルをWebブラウザで開き、問題が無ければ保存して、このファイルを提出してください。
         dockerのlesoon4-phpコンテナを起動　→　http://localhost:8000/　にアクセス　→　該当のリンクをクリック　→　結果を確認
     */
+    echo "<br>";
 
     //何か一つ組み込み関数を使い、その結果をechoで出力してください！（組み込み関数は、何でもいいです。）
+    echo date("Y年m月d日 H時i分s秒");
+    echo "<br>";
     
 
 
     //二つの数値を引数として受け取り、それらの合計を返す関数addNumbersを作成してください。
+    function addNumbers($num1, $num2) {
+        return $num1 + $num2;
+    }
+    echo addNumbers(5, 10);
+    echo "<br>";
 
 
 
     //文字列を引数として受け取り、その文字列が空でない場合はその文字列を、空の場合は"空の文字列"という文字列を返す関数checkStringを作成してください。
+    function checkString($str) {
+        if ($str !== "" && $str !== null) {
+            return $str;
+        } else {
+            return "空の文字列";
+        }
+    }
+    echo checkString("こんにちは"); 
+    echo "<br>";
 
 
 
     // 配列を引数として受け取り、その配列の要素の数を返す関数countElementsを作成してください。
+    function countElements($arr) {
+        return count($arr);
+    }
+    $test_array = [1, 2, 3, 4, 5];
+    echo countElements($test_array); 
+    echo "<br>";
 
 
     /*
@@ -41,6 +64,12 @@
     $secret = "Ocvif tjp ajm tjpm cvmy rjmf nj avm! Cvqz v bjjy mzno! Fjtvnp";
 
     $array = array("apple", "banana", "cherry", "date", "elderberry");
+
+    $shift_count = count($array); 
+    echo $shift_count . "<br>";
+
+    echo "Thank you for your hard work so far! Have a good rest! Koyasu";
+    echo "<br>";
 
 
     

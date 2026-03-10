@@ -59,6 +59,29 @@
     */
 
     //この下に記述してください
+    echo "<br>";
+
+    function isLeapYear($year) {
+        // 条件：400で割り切れる OR (4で割り切れる AND 100で割り切れない)
+        if (($year % 4 === 0 && $year % 100 !== 0) || ($year % 400 === 0)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // 現在の年を取得
+    $currentYear = date("Y");
+
+    // 1900年から現在の年までループ
+    for ($i = 1900; $i <= $currentYear; $i++) {
+        if (isLeapYear($i)) {
+            echo $i . "年はうるう年です。";
+        } else {
+            echo $i . "年はうるう年ではありません。";
+        }
+        echo "<br>";
+    }
 
     
 ?>

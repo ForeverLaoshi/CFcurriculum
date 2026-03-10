@@ -35,6 +35,41 @@
     */
 
     //この下に記述してください
+    echo "<br>";
+
+    $price = 3654; 
+    $wallet = 20000;
+    $change = $wallet - $price;
+
+    echo "商品の値段：" . $price . "円<br><br>";
+
+    if ($change < 0) {
+        echo "所持金が足りません！";
+    } elseif ($change === 0) {
+        echo "お釣りはありません。";
+    } else {
+        echo "おつり内訳（合計：" . $change . "円）<br>";
+        $units = [
+            "五千円札" => 5000,
+            "千円札"   => 1000,
+            "500円玉"  => 500,
+            "100円玉"  => 100,
+            "50円玉"   => 50,
+            "10円玉"   => 10,
+            "5円玉"    => 5,
+            "1円玉"    => 1
+        ];
+
+        foreach ($units as $unitName => $value) {
+            $count = floor($change / $value);
+            
+            if ($count > 0) {
+                echo $unitName . "　" . $count . "枚<br>";
+            }
+
+            $change = $change % $value;
+        }
+    }
 
     
 ?>
