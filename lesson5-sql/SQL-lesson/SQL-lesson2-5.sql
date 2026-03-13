@@ -22,3 +22,10 @@
 +------------+--------------------------+----------------------+------------------+-------------------+--------------+-----------------------+
 
 */
+
+SELECT 
+    b.*, 
+    AVG(r.Score) OVER(PARTITION BY b.Genre) AS average_score
+FROM Books b
+JOIN Reviews r ON b.ID = r.BookID;
+

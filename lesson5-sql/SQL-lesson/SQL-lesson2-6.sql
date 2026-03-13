@@ -18,3 +18,11 @@
 +--------------------+
 
 */
+
+SELECT DISTINCT Author AS name
+FROM Books
+WHERE Author NOT IN (
+    SELECT Author 
+    FROM Books 
+    WHERE Genre = 'SF'
+);

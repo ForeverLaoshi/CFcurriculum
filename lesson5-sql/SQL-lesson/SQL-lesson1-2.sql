@@ -10,3 +10,5 @@
     1. BooksテーブルからtitleカラムとPublicationYearカラムのレコードを取得するSQL
     2. Booksテーブルから全カラムのレコードを取得するSQL
 */
+
+SELECT author,PublicationYear FROM Books;
